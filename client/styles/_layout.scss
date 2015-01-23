@@ -1,0 +1,35 @@
+$base-font-color: #FFF;
+
+body {
+  background-image: url(/images/background-photo.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  color: $base-font-color;
+
+  @media only screen and (max-width: 767px) {
+    background-image: url(/images/background-photo-mobile-devices.jpg);
+  }
+}
+
+h1, h2, h3, h4, legend, label {
+  color: $base-font-color;
+}
+
+fieldset {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+fieldset legend {
+  background-color: transparent;
+}
+
+.messages {
+  margin-top: 0.6em;
+}
+
+.salutation {
+  color: #CCE8E7;
+}

@@ -25,6 +25,15 @@ var taskConfig = function(grunt) {
           'bower_components/es5-shim/'
         ],
         overrides: {
+          'foundation': {
+            'main': [
+              'css/foundation.css',
+              'css/foundation.css.map',
+              'js/foundation.js',
+              'js/foundation/foundation.topbar.js',
+              'js/foundation/foundation.alert.js'
+            ]
+          }
         }
       },
       src: [

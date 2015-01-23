@@ -3,6 +3,7 @@
 var React = require('react');
 var Navbar = require('../modules/navbar.jsx');
 var Messages = require('../modules/messages.jsx');
+var Footer = require('../modules/footer.jsx');
 var pageStore = require('../../stores/page');
 var userStore = require('../../stores/user');
 
@@ -18,6 +19,7 @@ var DefaultComponent = React.createClass({
   componentDidMount: function() {
     pageStore.emitChange();
     userStore.emitChange();
+    this.startFoundationEventHandling();
   },
   getInitialState: function() {
     return getState();
@@ -26,9 +28,7 @@ var DefaultComponent = React.createClass({
     return (
       /* jshint ignore:start */
       <div>
-        <div className="main-nav">
-          <Navbar user={this.state.user} />
-        </div>
+        <Navbar user={this.state.user} />
         <div className="default">
           <div className="main-container">
             <div className="messages">
@@ -39,6 +39,7 @@ var DefaultComponent = React.createClass({
             </div>
           </div>
         </div>
+        <Footer />
       </div>
       /* jshint ignore:end */
     );
@@ -46,6 +47,9 @@ var DefaultComponent = React.createClass({
   // Event handler for 'change' events coming from store mixins.
   _onChange: function() {
     this.setState(getState());
+  },
+  startFoundationEventHandling: function() {
+    $(document).foundation();
   }
 });
 

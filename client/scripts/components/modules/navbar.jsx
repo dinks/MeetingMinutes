@@ -20,25 +20,25 @@ var NavbarComponent = React.createClass({
     var user = this.props.user;
     var navLinks = user.loggedIn ? (
       /* jshint ignore:start */
-      <ul className="nav-list pull-right">
-        <li className="nav-item">
+      <ul className="right">
+        <li className="name salutation">
           Hello {user.firstName ? user.firstName : user.email}
         </li>
-        <li className="nav-item">
+        <li>
           <Link url="/settings">My Account</Link>
         </li>
-        <li className="nav-item">
+        <li>
           <Link url="/logout" onClick={this.handleLogout}>Logout</Link>
         </li>
       </ul>
       /* jshint ignore:end */
     ) : (
       /* jshint ignore:start */
-      <ul className="nav-list pull-right">
-        <li className="nav-item">
+      <ul className="right">
+        <li>
           <Link url="/login">Login</Link>
         </li>
-        <li className="nav-item">
+        <li>
           <Link url="/signup">Create Account</Link>
         </li>
       </ul>
@@ -47,16 +47,19 @@ var NavbarComponent = React.createClass({
 
     return (
       /* jshint ignore:start */
-      <div>
-        <div className="navbar">
-          <div className="nav">
-            <ul className="nav-list pull-left">
-              <li className="nav-item"><Link url="/">Home</Link></li>
-            </ul>
-            {navLinks}
-          </div>
-        </div>
-      </div>
+      <nav className="top-bar" data-topbar role="navigation">
+        <ul className="title-area">
+          <li className="name">
+            <h1>
+              <Link url="/">Meeting Minutes</Link>
+            </h1>
+          </li>
+          <li className="toggle-topbar menu-icon"><a><span></span></a></li>
+        </ul>
+        <section className="top-bar-section">
+          {navLinks}
+        </section>
+      </nav>
       /* jshint ignore:end */
     );
   },

@@ -8,18 +8,11 @@ var IndexComponent = React.createClass({
     return (
       /* jshint ignore:start */
       <DefaultLayout>
-        <div className="main-container">
-          <div className="yeogurt-info">
-            <h1>Welcome to Yeogurt!</h1>
-            <p>
-              Take a look at the <a href="https://github.com/larsonjj/generator-yeogurt#yeogurt-generator">documentation</a> and start mixing up something awesome.
-            </p>
-            <p>
-              <img src="/images/yeogurt-swirl.png" width="75px" className="logo" />
-            </p>
+        <div className="row">
+          <div className="large-10 large-offset-1 column text-center">
+            <h2>Optimize your Meeting Minutes!</h2>
           </div>
         </div>
-        <code className="version">v0.14.2</code>
       </DefaultLayout>
       /* jshint ignore:end */
     );

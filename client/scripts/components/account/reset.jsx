@@ -9,20 +9,28 @@ var ResetComponent = React.createClass({
     return (
       /* jshint ignore:start */
       <DefaultLayout>
-        <h3>Reset Password</h3>
-        <form method="post" onSubmit={this.handleSubmit}>
-          <p>
-            <label htmlFor="password">New Password</label>
-            <input type="password" name="password" defaultValue="" placeholder="New password" autofocus="autofocus" />
-          </p>
+        <div className="row">
+          <div className="large-8 large-offset-2 small-12 columns">
+            <fieldset>
+              <legend>
+                <h2>Reset Password</h2>
+              </legend>
+              <form method="post" onSubmit={this.handleSubmit}>
+                <p>
+                  <label htmlFor="password">New Password</label>
+                  <input type="password" name="password" defaultValue="" placeholder="New password" autofocus="autofocus" />
+                </p>
 
-          <p>
-            <label htmlFor="confirm">Confirm Password</label>
-            <input type="password" name="confirm" defaultValue="" placeholder="Confirm password" />
-          </p>
+                <p>
+                  <label htmlFor="confirm">Confirm Password</label>
+                  <input type="password" name="confirm" defaultValue="" placeholder="Confirm password" />
+                </p>
 
-          <button>Change Password</button>
-        </form>
+                <button>Change Password</button>
+              </form>
+            </fieldset>
+          </div>
+        </div>
       </DefaultLayout>
       /* jshint ignore:end */
     );

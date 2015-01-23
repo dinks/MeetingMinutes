@@ -58,5 +58,3 @@ userActions.isAuthenticated({
   }
 
 });
-
-console.log('Welcome to Yeogurt');

@@ -15,7 +15,7 @@ var taskConfig = function(grunt) {
       options: {
         transform: function(filePath) {
           filePath = filePath.replace('/client/styles/', '');
-          
+
           return '@import \'' + filePath.slice(0, -5) + '\';';
         },
         starttag: '// [injector]',

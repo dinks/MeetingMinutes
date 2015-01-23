@@ -22,52 +22,75 @@ var SettingsComponent = React.createClass({
     return (
       /* jshint ignore:start */
       <DefaultLayout>
-        <h3>Profile Information</h3>
+        <div className="row">
+          <div className="large-8 large-offset-2 small-12 columns">
+            <fieldset>
+              <legend>
+                <h2>Profile Information</h2>
+              </legend>
+              <form id="profile-form" action="/user?_method=PUT" method="post" onSubmit={this.handleSettings}>
+                <p>
+                  <label htmlFor="email">Email:</label>
+                  <input type="text" name="email" id="email" defaultValue={user.email} />
+                </p>
 
-        <form id="profile-form" action="/user?_method=PUT" method="post" onSubmit={this.handleSettings}>
+                <p>
+                  <label htmlFor="firstName">First Name:</label>
+                  <input type="text" name="firstName" id="firstName" defaultValue={user.firstName} />
+                </p>
 
-          <p>
-            <label htmlFor="email">Email:</label>
-            <input type="text" name="email" id="email" defaultValue={user.email} />
-          </p>
+                <p>
+                  <label htmlFor="lastName">Last Name:</label>
+                  <input type="text" name="lastName" id="lastName" defaultValue={user.lastName} />
+                </p>
 
-          <p>
-            <label htmlFor="firstName">First Name:</label>
-            <input type="text" name="firstName" id="firstName" defaultValue={user.firstName} />
-          </p>
+                <button>Update Profile</button>
+              </form>
+            </fieldset>
+          </div>
+        </div>
 
-          <p>
-            <label htmlFor="lastName">Last Name:</label>
-            <input type="text" name="lastName" id="lastName" defaultValue={user.lastName} />
-          </p>
+        <div className="row">
+          <div className="large-8 large-offset-2 small-12 columns">
+            <fieldset>
+              <legend>
+                <h2>Change Password</h2>
+              </legend>
+              <form id="password-form" action="/user/password?_method=PUT" method="post" onSubmit={this.handlePassword}>
 
-          <button>Update Profile</button>
-        </form>
+                <p>
+                  <label htmlFor="password">New Password:</label>
+                  <input type="password" name="password" id="password" defaultValue='' />
+                </p>
 
-        <h3>Change Password</h3>
+                <p>
+                  <label htmlFor="confirmPassword">Confirm Password:</label>
+                  <input type="password" name="confirmPassword" id="confirmPassword" defaultValue='' />
+                </p>
 
-        <form id="password-form" action="/user/password?_method=PUT" method="post" onSubmit={this.handlePassword}>
+                <button>Change Password</button>
+              </form>
+            </fieldset>
+          </div>
+        </div>
 
-          <p>
-            <label htmlFor="password">New Password:</label>
-            <input type="password" name="password" id="password" defaultValue='' />
-          </p>
+        <div className="row">
+          <div className="large-8 large-offset-2 small-12 columns">
+            <fieldset>
+              <legend>
+                <h2>Delete Account</h2>
+              </legend>
 
-          <p>
-            <label htmlFor="confirmPassword">Confirm Password:</label>
-            <input type="password" name="confirmPassword" id="confirmPassword" defaultValue='' />
-          </p>
+              <div data-alert className="alert-box alert radius">
+                You can delete your account, but keep in mind this action is irreversible.
+              </div>
 
-          <button>Change Password</button>
-        </form>
-
-        <h3>Delete Account</h3>
-
-        <p>You can delete your account, but keep in mind this action is irreversible.</p>
-
-        <form id="delete-form" action="/user?_method=DELETE" method="post" onSubmit={this.handleDestroy}>
-          <button>Delete my account</button>
-        </form>
+              <form id="delete-form" action="/user?_method=DELETE" method="post" onSubmit={this.handleDestroy}>
+                <button>Delete my account</button>
+              </form>
+            </fieldset>
+          </div>
+        </div>
       </DefaultLayout>
       /* jshint ignore:end */
     );

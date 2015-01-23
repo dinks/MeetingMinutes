@@ -1,4 +1,3 @@
-# Meetingminutes readme
+# MeetingMinutes
 
-This is an example readme file.
-Describe your site/app here.
+A simple React/Express/MongoDb app which lets users create, manage and restrospect meetings.
