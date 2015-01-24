@@ -150,19 +150,19 @@ var expressConfig = function(app, express, db) {
       html: function() {
         res.render('error', {
           status: 404,
-          message: 'Page not found',
+          message: 'Cant find what you were looking for!',
           error: {}
         });
       },
       json: function() {
         res.json({
           status: 404,
-          message: 'Page not found',
+          message: 'Cant find what you were looking for!',
           error: {}
         });
       },
       text: function() {
-        res.send(404 + ': ' + 'Page not found');
+        res.send(404 + ': ' + 'Cant find what you were looking for!');
       }
     });
   });
