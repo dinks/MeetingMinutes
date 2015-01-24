@@ -1,6 +1,10 @@
 {
   "name": "meetingminutes",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dinks/MeetingMinutes.git"
+  },
   "dependencies": {
     "async": "~0.7.0",
     "bcrypt": "~0.8.0",
