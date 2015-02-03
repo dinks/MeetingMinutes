@@ -17,7 +17,10 @@
 
 // Injects all import files automatically
 // [injector]
+@import '_footer';
 @import '_layout';
+@import '_messages';
+@import '_navbar';
 // [endinjector]
 
 // Styling on warning for users on IE7 or below
