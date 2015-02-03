@@ -15,10 +15,10 @@ var FooterComponent = React.createClass({
           <div className="large-12 columns">
             <hr />
             <div className="row">
-              <div className="large-6 columns">
+              <div className="large-6 medium-6 small-6 columns">
                 <p>© Copyright dinksie.</p>
               </div>
-              <div className="large-6 columns">
+              <div className="large-6 medium-6 small-6 columns">
                 <ul className="inline-list right">
                   <li><Link url="/">Home</Link></li>
                 </ul>
