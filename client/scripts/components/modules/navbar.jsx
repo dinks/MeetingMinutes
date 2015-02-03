@@ -25,6 +25,9 @@ var NavbarComponent = React.createClass({
           Hello {user.firstName ? user.firstName : user.email}
         </li>
         <li>
+          <Link url="/meetings">Meetings</Link>
+        </li>
+        <li>
           <Link url="/settings">My Account</Link>
         </li>
         <li>

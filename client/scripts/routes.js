@@ -11,6 +11,9 @@ var ResetPage = React.createFactory(require('./components/account/reset.jsx'));
 var ForgotPage = React.createFactory(require('./components/account/forgot.jsx'));
 var SettingsPage = React.createFactory(require('./components/account/settings.jsx'));
 
+// Meetings
+var MeetingsIndexPage = React.createFactory(require('./components/meetings/index.jsx'));
+
 var render = function(Page) {
   React.render(new Page(), document.getElementById('app-wrapper'));
 };
@@ -72,12 +75,22 @@ var settings = function() {
   render(SettingsPage);
 };
 
+var meetingsIndex = function() {
+  // If user is not logged in, redirect to login page
+  if (!userStore.get().loggedIn) {
+    return routeActions.setRoute('/login');
+  }
+
+  render(MeetingsIndexPage);
+};
+
 var routes = {
   '/login': login,
   '/forgot': forgot,
   '/reset/:token': reset,
   '/signup': signup,
   '/settings': settings,
+  '/meetings': meetingsIndex,
   '/': index
 };
 

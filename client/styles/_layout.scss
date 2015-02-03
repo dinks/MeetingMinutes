@@ -30,8 +30,11 @@ fieldset legend {
   margin-top: 0.6em;
 }
 
-.salutation {
-  color: #CCE8E7;
+nav.top-bar {
+  .salutation {
+    color: #CCE8E7;
+    padding-left: 1em;
+  }
 }
 
 #app-wrapper {
