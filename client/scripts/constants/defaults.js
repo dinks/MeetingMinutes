@@ -17,8 +17,9 @@ var Defaults = {
     lastName: 'Doe'
   },
 
-  messages: {}
+  messages: {},
 
+  meetings: null
 
 };
 

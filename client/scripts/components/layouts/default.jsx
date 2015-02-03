@@ -6,6 +6,7 @@ var Messages = require('../modules/messages.jsx');
 var Footer = require('../modules/footer.jsx');
 var pageStore = require('../../stores/page');
 var userStore = require('../../stores/user');
+var meetingsStore = require('../../stores/meetings');
 
 var getState = function() {
   return {
@@ -15,10 +16,12 @@ var getState = function() {
 };
 
 var DefaultComponent = React.createClass({
-  mixins: [pageStore.mixin, userStore.mixin],
+  mixins: [pageStore.mixin, userStore.mixin, meetingsStore.mixin],
   componentDidMount: function() {
     pageStore.emitChange();
     userStore.emitChange();
+    meetingsStore.emitChange();
+
     this.startFoundationEventHandling();
   },
   getInitialState: function() {

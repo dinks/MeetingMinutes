@@ -1,0 +1,111 @@
+$bubbler-start-color: #232C2E;
+$bubbler-end-color: #1r6E7F2;
+
+.bubbler {
+  text-align: center;
+  width: 112px;
+  height: 70px;
+  margin: auto;
+}
+
+.bubbler span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 14px;
+  height: 14px;
+  margin: 35px auto;
+  background: $bubbler-start-color;
+  -moz-border-radius: 70px;
+  -moz-animation: bubbler 1.6s infinite alternate;
+  -webkit-border-radius: 70px;
+  -webkit-animation: bubbler 1.6s infinite alternate;
+  -o-border-radius: 70px;
+  -o-animation: bubbler 1.6s infinite alternate;
+  -ms-border-radius: 70px;
+  -ms-animation: bubbler 1.6s infinite alternate;
+}
+
+#bubbler_1 {
+  -moz-animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  -ms-animation-delay: 0s;
+}
+
+#bubbler_2 {
+  -moz-animation-delay: 0.48s;
+  -webkit-animation-delay: 0.48s;
+  -o-animation-delay: 0.48s;
+  -ms-animation-delay: 0.48s;
+}
+
+#bubbler_3 {
+  -moz-animation-delay: 0.96s;
+  -webkit-animation-delay: 0.96s;
+  -o-animation-delay: 0.96s;
+  -ms-animation-delay: 0.96s;
+}
+
+@-moz-keyframes bubbler {
+  0% {
+    width: 14px;
+    height: 14px;
+    background-color: $bubbler-start-color;
+    -moz-transform: translateY(0);
+  }
+
+  100% {
+    width: 34px;
+    height: 34px;
+    background-color: $bubbler-end-color;
+    -moz-transform: translateY(-29px);
+  }
+}
+
+@-webkit-keyframes bubbler {
+  0% {
+    width: 14px;
+    height: 14px;
+    background-color: $bubbler-start-color;
+    -webkit-transform: translateY(0);
+  }
+
+  100% {
+    width: 34px;
+    height: 34px;
+    background-color: $bubbler-end-color;
+    -webkit-transform: translateY(-29px);
+  }
+}
+
+@-o-keyframes bubbler {
+  0% {
+    width: 14px;
+    height: 14px;
+    background-color: $bubbler-start-color;
+    -o-transform: translateY(0);
+  }
+
+  100% {
+    width: 34px;
+    height: 34px;
+    background-color: $bubbler-end-color;
+    -o-transform: translateY(-29px);
+  }
+}
+
+@-ms-keyframes bubbler {
+  0% {
+    width: 14px;
+    height: 14px;
+    background-color: $bubbler-start-color;
+    -ms-transform: translateY(0);
+  }
+
+  100% {
+    width: 34px;
+    height: 34px;
+    background-color: $bubbler-end-color;
+    -ms-transform: translateY(-29px);
+  }
+}
