@@ -57,9 +57,12 @@ var IndexComponent = React.createClass({
            /* jshint ignore:start */
           <DefaultLayout>
             <div className="row">
-              <MeetingToolbox />
               <div className="large-10 large-offset-1 column text-center">
-                {_.map(meetings, function(meeting) { '<Meeting meeting=meeting />'})}
+                {
+                  _.map(meetings, function(meeting) {
+                    return <Meeting meeting={meeting} />
+                  })
+                }
               </div>
               <MeetingToolbox />
             </div>

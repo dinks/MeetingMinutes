@@ -12,7 +12,10 @@ var MeetingComponent = React.createClass({
     return (
       /* jshint ignore:start */
       <div>
-        Meeting {meeting}
+        <h2>{meeting.title}</h2>
+        <p>
+          {meeting.agenda}
+        </p>
       </div>
       /* jshint ignore:end */
     );

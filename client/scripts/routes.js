@@ -13,6 +13,7 @@ var SettingsPage = React.createFactory(require('./components/account/settings.js
 
 // Meetings
 var MeetingsIndexPage = React.createFactory(require('./components/meetings/index.jsx'));
+var MeetingsNewPage = React.createFactory(require('./components/meetings/new.jsx'));
 
 var render = function(Page) {
   React.render(new Page(), document.getElementById('app-wrapper'));
@@ -75,13 +76,22 @@ var settings = function() {
   render(SettingsPage);
 };
 
-var meetingsIndex = function() {
-  // If user is not logged in, redirect to login page
-  if (!userStore.get().loggedIn) {
-    return routeActions.setRoute('/login');
-  }
 
-  render(MeetingsIndexPage);
+var meetings = function(action) {
+  return function () {
+    // If user is not logged in, redirect to login page
+    if (!userStore.get().loggedIn) {
+      return routeActions.setRoute('/login');
+    }
+    switch (action) {
+      case 'index':
+        render(MeetingsIndexPage);
+        break;
+      case 'new':
+        render(MeetingsNewPage);
+        break;
+    }
+  };
 };
 
 var routes = {
@@ -90,7 +100,8 @@ var routes = {
   '/reset/:token': reset,
   '/signup': signup,
   '/settings': settings,
-  '/meetings': meetingsIndex,
+  '/meetings': meetings('index'),
+  '/meetings/new': meetings('new'),
   '/': index
 };
 

@@ -26,7 +26,7 @@ var MessagesComponent = React.createClass({
         return messages[options.key].map(function(item, index) {
           return (
             /* jshint ignore:start */
-            <div key={index} data-alert tabindex="0" aria-live="assertive" role="dialogalert" className={options.msgClass}>
+            <div key={index} data-alert tab-index="0" aria-live="assertive" role="dialogalert" className={options.msgClass}>
               {item.msg}
               <a href="#" className="close">&times;</a>
             </div>
@@ -36,11 +36,20 @@ var MessagesComponent = React.createClass({
       }
     };
 
-    var errors = getMessages({key: 'errors', msgClass: 'alert-box alert radius large-12 column'});
+    var errors = getMessages({
+      key: 'errors',
+      msgClass: 'alert-box alert radius large-12 column'
+    });
 
-    var info = getMessages({key: 'info', msgClass: 'alert-box info radius large-12 column'});
+    var info = getMessages({
+      key: 'info',
+      msgClass: 'alert-box info radius large-12 column'
+    });
 
-    var success = getMessages({key: 'success', msgClass: 'alert-box success radius large-12 column'});
+    var success = getMessages({
+      key: 'success',
+      msgClass: 'alert-box success radius large-12 column'
+    });
 
     return (
       /* jshint ignore:start */

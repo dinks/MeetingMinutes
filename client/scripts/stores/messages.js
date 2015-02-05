@@ -24,6 +24,9 @@ MessagesStore.dispatcherToken = Dispatcher.register(function(payload) {
     _messages = action.messages;
 
     MessagesStore.emitChange();
+
+    // Reapply listeners to alert elements
+    $(document).foundation('alert', 'reflow');
   }
 
 });
