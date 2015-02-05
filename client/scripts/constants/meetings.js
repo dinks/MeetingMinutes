@@ -7,8 +7,7 @@ var meetingsConstants = _.assign(
   keyMirror({
 
     // Global meeting types
-    SET_MEETINGS: null,
-    SET_CACHE: null,
+    SET_MEETINGS: null
 
   }), {
   // Cache settings

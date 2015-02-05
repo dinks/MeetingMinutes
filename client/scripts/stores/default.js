@@ -56,6 +56,9 @@ var Store = function(methods) {
     this.removeListener(CHANGE_EVENT, callback);
   };
 
+  // Cache Storage
+  this.cacher = lscache;
+
 };
 
 module.exports = Store;
