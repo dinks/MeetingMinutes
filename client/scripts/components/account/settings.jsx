@@ -43,8 +43,11 @@ var SettingsComponent = React.createClass({
                   <label htmlFor="lastName">Last Name:</label>
                   <input type="text" name="lastName" id="lastName" defaultValue={user.lastName} />
                 </p>
-
-                <button>Update Profile</button>
+                <div className="row">
+                  <div className="large-12 columns text-right">
+                    <button className="button tiny radius">Update Profile</button>
+                  </div>
+                </div>
               </form>
             </fieldset>
           </div>
@@ -68,7 +71,11 @@ var SettingsComponent = React.createClass({
                   <input type="password" name="confirmPassword" id="confirmPassword" defaultValue='' />
                 </p>
 
-                <button>Change Password</button>
+                <div className="row">
+                  <div className="large-12 columns text-right">
+                    <button className="button tiny radius">Change Password</button>
+                  </div>
+                </div>
               </form>
             </fieldset>
           </div>
@@ -86,7 +93,11 @@ var SettingsComponent = React.createClass({
               </div>
 
               <form id="delete-form" action="/user?_method=DELETE" method="post" onSubmit={this.handleDestroy}>
-                <button>Delete my account</button>
+                <div className="row">
+                  <div className="large-12 columns text-right">
+                    <button className="button tiny radius">Delete my account</button>
+                  </div>
+                </div>
               </form>
             </fieldset>
           </div>

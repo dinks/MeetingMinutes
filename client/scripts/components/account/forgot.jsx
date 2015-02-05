@@ -23,7 +23,7 @@ var ForgotComponent = React.createClass({
                   <input type="email" name="email" id="email" placeholder="Enter your email" autofocus="autofocus" />
                 </p>
 
-                <button>Reset Password</button>
+                <button className="button tiny">Reset Password</button>
               </form>
             </fieldset>
           </div>

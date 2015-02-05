@@ -3,6 +3,7 @@
 var React = require('react');
 var DefaultLayout = require('../layouts/default.jsx');
 var Bubbler = require('../modules/bubbler.jsx');
+var Link = require('../modules/link.jsx');
 var meetingsStore = require('../../stores/meetings');
 var meetingsActions = require('../../actions/meetings');
 
@@ -26,7 +27,11 @@ var ShowComponent = React.createClass({
   },
   render: function() {
     var meeting = this.state.meeting;
+
     if (meeting) {
+      var meetingUrl = "/meetings/" + meeting._id;
+      var segmentUrl = "";
+
       return (
         /* jshint ignore:start */
         <DefaultLayout>
@@ -36,6 +41,25 @@ var ShowComponent = React.createClass({
               <p className="subheader">
                 {meeting.agenda}
               </p>
+            </div>
+            <div className="large-12 columns text-right">
+              <form id="meeting-form" action={meetingUrl} method="post" onSubmit={this.handleAction}>
+                <ul className="button-group radius">
+                  <li>
+                    <button className="button tiny success" role="button" aria-label="create segment">
+                      <i className="fa fa-trash-o fa-lg"></i>
+                      Create Segment
+                    </button>
+                  </li>
+                  <li>
+                    <input type="hidden" name="_method" value="DELETE" />
+                    <button className="button tiny secondary" role="button" aria-label="delete meeting">
+                      <i className="fa fa-trash-o fa-lg"></i>
+                      Delete Meeting
+                    </button>
+                  </li>
+                </ul>
+              </form>
             </div>
           </div>
         </DefaultLayout>
@@ -54,6 +78,9 @@ var ShowComponent = React.createClass({
         /* jshint ignore:end */
       );
     }
+  },
+  handleAction: function(e) {
+    e.preventDefault();
   },
   // Event handler for 'change' events coming from store mixins.
   _onChange: function() {

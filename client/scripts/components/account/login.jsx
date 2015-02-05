@@ -28,7 +28,7 @@ var LoginComponent = React.createClass({
                   <input type="password" name="password" id="password" placeholder="Password" />
                 </p>
 
-                <button role="button" aria-label="Login">Login</button>
+                <button role="button" aria-label="Login" className="button tiny">Login</button>
                 <p><Link url="/forgot" role="button" aria-label="forgot password">Forgot your password?</Link></p>
               </form>
             </fieldset>

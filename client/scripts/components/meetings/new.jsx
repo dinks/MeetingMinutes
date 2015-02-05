@@ -31,13 +31,21 @@ var NewComponent = React.createClass({
                   <textarea name="agenda" required id="agenda" placeholder="Agenda of the Meeting" autofocus="autofocus"></textarea>
                 </p>
 
-                <div className="button-bar">
-                  <ul className="button-group radius">
-                    <li><button className="button" role="button" aria-label="create meeting">Create</button></li>
-                  </ul>
-                  <ul className="button-group radius">
-                    <li><Link url="/meetings" className="button secondary" role="button" aria-label="cancel creation of meeting">Cancel</Link></li>
-                  </ul>
+                <div className="row">
+                  <div className="large-12 columns text-right">
+                    <ul className="button-group radius">
+                      <li>
+                        <button className="button tiny" role="button" aria-label="create meeting">
+                          Create
+                        </button>
+                      </li>
+                      <li>
+                        <Link url="/meetings" className="button tiny secondary" role="button" aria-label="cancel creation of meeting">
+                          Cancel
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </form>
             </fieldset>
