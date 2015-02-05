@@ -21,7 +21,9 @@ var IndexComponent = React.createClass({
     return getState();
   },
   componentDidMount: function() {
-    meetingsActions.getMeetings();
+    if (!meetingsStore.inCache()) {
+      meetingsActions.getMeetings();
+    }
   },
   render: function() {
     var meetings = this.state.meetings;

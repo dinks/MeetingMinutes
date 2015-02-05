@@ -33,6 +33,9 @@ var taskConfig = function(grunt) {
               'js/foundation/foundation.topbar.js',
               'js/foundation/foundation.alert.js'
             ]
+          },
+          'lscache': {
+            'main': 'lscache.min.js'
           }
         }
       },

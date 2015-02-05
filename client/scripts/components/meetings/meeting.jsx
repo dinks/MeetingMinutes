@@ -10,7 +10,8 @@ var MeetingComponent = React.createClass({
   render: function() {
     var meeting = this.props.meeting;
 
-    var meetingUrl = "/meetings/" + meeting._id;
+    var viewMeetingUrl = "/meetings/" + meeting._id;
+    var editMeetingUrl = "/meetings/" + meeting._id + "/edit";
 
     return (
       /* jshint ignore:start */
@@ -23,9 +24,16 @@ var MeetingComponent = React.createClass({
         </div>
         <div className="large-3 medium-4 small-12 columns text-right">
           <form id="meeting-delete-form" action="/meetings" method="post" onSubmit={this.handleDestroy}>
-            <ul className="button-group radius even-2">
+            <ul className="button-group radius even-3">
               <li>
-                <Link url={meetingUrl} className="button tiny success" role="button" aria-label="view meeting">View</Link>
+                <Link url={viewMeetingUrl} className="button tiny success" role="button" aria-label="view meeting">
+                  View
+                </Link>
+              </li>
+              <li>
+                <Link url={editMeetingUrl} className="button tiny success" role="button" aria-label="edit meeting">
+                  Edit
+                </Link>
               </li>
               <li>
                 <input type="hidden" name="_method" value="DELETE" />

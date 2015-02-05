@@ -18,11 +18,17 @@ module.exports = {
       actionType: meetingsConstants.SET_MEETINGS,
       meetings: assign([], meetingsDefaults, meetings)
     });
+
+    Dispatcher.handleViewAction({
+      actionType: meetingsConstants.SET_CACHE,
+      meetings: meetings
+    });
   },
 
   getMeetings: function(callback) {
     var self = this;
     var token = self.getToken();
+
     request
       .get('/api/meetings')
       .type('json')
