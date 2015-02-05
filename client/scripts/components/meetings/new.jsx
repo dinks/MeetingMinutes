@@ -33,10 +33,10 @@ var NewComponent = React.createClass({
 
                 <div className="button-bar">
                   <ul className="button-group radius">
-                    <li><button className="button">Create</button></li>
+                    <li><button className="button" role="button" aria-label="create meeting">Create</button></li>
                   </ul>
                   <ul className="button-group radius">
-                    <li><Link url="/meetings" className="button secondary">Cancel</Link></li>
+                    <li><Link url="/meetings" className="button secondary" role="button" aria-label="cancel creation of meeting">Cancel</Link></li>
                   </ul>
                 </div>
               </form>

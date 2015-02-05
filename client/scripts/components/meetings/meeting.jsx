@@ -17,20 +17,20 @@ var MeetingComponent = React.createClass({
       <div className="row">
         <div className="large-9 medium-8 small-12 columns">
           <h2>{meeting.title}</h2>
-          <p>
+          <p className="subheader">
             {meeting.agenda}
           </p>
         </div>
-        <div className="large-3 medium-4 small-12 columns large-centered text-right">
+        <div className="large-3 medium-4 small-12 columns text-right">
           <form id="meeting-delete-form" action="/meetings" method="post" onSubmit={this.handleDestroy}>
             <ul className="button-group radius even-2">
               <li>
-                <Link url={meetingUrl} className="button tiny success">View</Link>
+                <Link url={meetingUrl} className="button tiny success" role="button" aria-label="view meeting">View</Link>
               </li>
               <li>
                 <input type="hidden" name="_method" value="DELETE" />
                 <input type="hidden" name="_id" value={meeting._id} />
-                <button className="button tiny secondary">Delete</button>
+                <button className="button tiny secondary" role="button" aria-label="delete meeting">Delete</button>
               </li>
             </ul>
           </form>
