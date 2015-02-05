@@ -31,7 +31,7 @@ var IndexComponent = React.createClass({
         /* jshint ignore:start */
         <DefaultLayout>
           <div className="row">
-            <div className="large-10 large-offset-1 column text-center">
+            <div className="large-12 columns text-center">
               <Bubbler />
             </div>
           </div>
@@ -44,7 +44,7 @@ var IndexComponent = React.createClass({
           /* jshint ignore:start */
           <DefaultLayout>
             <div className="row">
-              <div className="large-10 large-offset-1 column text-center">
+              <div className="large-12 columns text-center">
                 <h2>Start by creating a meeting!</h2>
               </div>
               <MeetingToolbox />
@@ -57,14 +57,15 @@ var IndexComponent = React.createClass({
            /* jshint ignore:start */
           <DefaultLayout>
             <div className="row">
-              <div className="large-10 large-offset-1 column text-center">
+              <div className="large-12 columns">
                 {
                   _.map(meetings, function(meeting) {
-                    return <Meeting meeting={meeting} />
+                    return <Meeting key={meeting._id} meeting={meeting} />
                   })
                 }
+                <hr />
+                <MeetingToolbox />
               </div>
-              <MeetingToolbox />
             </div>
           </DefaultLayout>
           /* jshint ignore:end */

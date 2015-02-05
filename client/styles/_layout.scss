@@ -34,6 +34,12 @@ fieldset legend {
   margin: auto 0.5em;
 }
 
+.main-container {
+  hr {
+    border-color: #3D3D3D;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   footer {
     position: relative;

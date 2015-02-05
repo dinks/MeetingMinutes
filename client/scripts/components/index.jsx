@@ -9,7 +9,7 @@ var IndexComponent = React.createClass({
       /* jshint ignore:start */
       <DefaultLayout>
         <div className="row">
-          <div className="large-10 large-offset-1 column text-center">
+          <div className="large-10 large-offset-1 columns text-center">
             <h2>Optimize your Meeting Minutes!</h2>
           </div>
         </div>

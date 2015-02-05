@@ -10,7 +10,7 @@ var ToolboxComponent = React.createClass({
   render: function() {
     return (
       /* jshint ignore:start */
-      <div className="large-10 large-offset-1 column text-right">
+      <div className="text-right">
         <Link url="/meetings/new" className="button radius">Create new meeting</Link>
       </div>
       /* jshint ignore:end */
