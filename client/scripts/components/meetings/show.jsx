@@ -46,14 +46,14 @@ var ShowComponent = React.createClass({
               <form id="meeting-form" action={meetingUrl} method="post" onSubmit={this.handleAction}>
                 <ul className="button-group radius">
                   <li>
-                    <button className="button tiny success" role="button" aria-label="create segment">
-                      <i className="fa fa-trash-o fa-lg"></i>
+                    <button value="create-segment" className="button tiny success" role="button" aria-label="create segment" onClick={this.handleCreateSegment}>
+                      <i className="fa fa-tasks fa-lg"></i>
                       Create Segment
                     </button>
                   </li>
                   <li>
                     <input type="hidden" name="_method" value="DELETE" />
-                    <button className="button tiny secondary" role="button" aria-label="delete meeting">
+                    <button value="delete-meeting" className="button tiny secondary" role="button" aria-label="delete meeting">
                       <i className="fa fa-trash-o fa-lg"></i>
                       Delete Meeting
                     </button>
@@ -80,6 +80,9 @@ var ShowComponent = React.createClass({
     }
   },
   handleAction: function(e) {
+    e.preventDefault();
+  },
+  handleCreateSegment: function(e) {
     e.preventDefault();
   },
   // Event handler for 'change' events coming from store mixins.
