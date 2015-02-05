@@ -62,10 +62,14 @@ var IndexComponent = React.createClass({
               <div className="large-12 columns">
                 {
                   _.map(meetings, function(meeting) {
-                    return <Meeting key={meeting._id} meeting={meeting} />
+                    return (
+                      <div key={meeting._id}>
+                        <Meeting meeting={meeting} />
+                        <hr />
+                      </div>
+                    );
                   })
                 }
-                <hr />
                 <MeetingToolbox />
               </div>
             </div>

@@ -20,6 +20,13 @@ module.exports = {
     });
   },
 
+  addMeeting: function(meeting) {
+    Dispatcher.handleViewAction({
+      actionType: meetingsConstants.ADD_MEETING,
+      meeting: meeting
+    });
+  },
+
   getMeetings: function(callback) {
     var self = this;
     var token = self.getToken();
@@ -55,7 +62,8 @@ module.exports = {
     var cb = callback || function() {};
     cb.options = {
       successUrl: '/meetings',
-      errorUrl: '/meetings/new'
+      errorUrl: '/meetings/new',
+      updateMeetingsList: true
     };
     this.postForm(form, cb);
   },
@@ -83,17 +91,10 @@ module.exports = {
       .send(postData)
       .end(function(res) {
         if (res.ok) {
-          var meetingData;
-          // If auth token needs to be stored
-          if (options.setToken) {
-            // Store token in cookie that expires in a week
-            self.setToken(res.body.token, 7);
-          }
-          // If user needs to be updated
-          if (options.updateUser) {
-            meetingData = res.body.meeting;
+          if (options.updateMeetingsList) {
+            var meetingData = res.body.meeting;
 
-            self.setUser(meetingData);
+            self.addMeeting(meetingData);
           }
           if (callback && callback.success) {
             callback.success(res);

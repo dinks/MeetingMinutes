@@ -40,7 +40,18 @@ MeetingStore.dispatcherToken = Dispatcher.register(function(payload) {
 
   if (action.actionType === meetingsConstants.SET_MEETINGS) {
     _meetings = action.meetings;
-    MeetingStore.putToCache(action.meetings);
+    MeetingStore.putToCache(_meetings);
+    MeetingStore.emitChange();
+  }
+
+  if (action.actionType === meetingsConstants.ADD_MEETING) {
+    if (_meetings) {
+      _meetings.push(action.meeting);
+    } else {
+      _meetings = [ action.meeting ];
+    }
+
+    MeetingStore.putToCache(_meetings);
     MeetingStore.emitChange();
   }
 
