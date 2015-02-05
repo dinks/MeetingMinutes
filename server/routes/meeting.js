@@ -16,6 +16,9 @@ var routes = function(app) {
   // New Meeting
   app.get('/meetings/new', meetingController.genericHandler);
 
+  // View Meeting
+  app.get('/meetings/:id', meetingController.genericHandler);
+
 };
 
 module.exports = routes;

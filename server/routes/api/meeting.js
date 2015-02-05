@@ -13,6 +13,9 @@ var routes = function(app) {
   // Create a meeting
   app.post('/meetings', meetingController.create);
 
+  // Get a meeting
+  app.get('/meetings/:id', meetingController.show);
+
   return app;
 };
 

@@ -14,9 +14,10 @@ var SettingsPage = React.createFactory(require('./components/account/settings.js
 // Meetings
 var MeetingsIndexPage = React.createFactory(require('./components/meetings/index.jsx'));
 var MeetingsNewPage = React.createFactory(require('./components/meetings/new.jsx'));
+var MeetingsShowPage = React.createFactory(require('./components/meetings/show.jsx'));
 
-var render = function(Page) {
-  React.render(new Page(), document.getElementById('app-wrapper'));
+var render = function(Page, options) {
+  React.render(new Page(options), document.getElementById('app-wrapper'));
 };
 
 var index = function() {
@@ -78,7 +79,7 @@ var settings = function() {
 
 
 var meetings = function(action) {
-  return function () {
+  return function (meetingId) {
     // If user is not logged in, redirect to login page
     if (!userStore.get().loggedIn) {
       return routeActions.setRoute('/login');
@@ -89,6 +90,11 @@ var meetings = function(action) {
         break;
       case 'new':
         render(MeetingsNewPage);
+        break;
+      case 'show':
+        render(MeetingsShowPage, {
+          meetingId: meetingId
+        });
         break;
     }
   };
@@ -102,6 +108,7 @@ var routes = {
   '/settings': settings,
   '/meetings': meetings('index'),
   '/meetings/new': meetings('new'),
+  '/meetings/:id': meetings('show'),
   '/': index
 };
 

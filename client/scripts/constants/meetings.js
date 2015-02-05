@@ -14,7 +14,7 @@ var meetingsConstants = _.assign(
   }), {
   // Cache settings
   CACHE_KEY: 'meetings',
-  CACHE_EXPIRATION: 5 // in minutes
+  CACHE_EXPIRATION: 1 // in minutes
 });
 
 module.exports = meetingsConstants;

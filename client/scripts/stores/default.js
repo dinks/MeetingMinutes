@@ -1,3 +1,4 @@
+/* global lscache: false */
 'use strict';
 
 var EventEmitter = require('events').EventEmitter;

@@ -10,35 +10,32 @@ var MeetingComponent = React.createClass({
   render: function() {
     var meeting = this.props.meeting;
 
-    var viewMeetingUrl = "/meetings/" + meeting._id;
-    var editMeetingUrl = "/meetings/" + meeting._id + "/edit";
+    var meetingUrl = "/meetings/" + meeting._id;
 
     return (
       /* jshint ignore:start */
       <div className="row">
-        <div className="large-9 medium-8 small-12 columns">
+        <div className="large-6 medium-6 small-12 columns">
           <h2>{meeting.title}</h2>
           <p className="subheader">
             {meeting.agenda}
           </p>
         </div>
-        <div className="large-3 medium-4 small-12 columns text-right">
-          <form id="meeting-delete-form" action="/meetings" method="post" onSubmit={this.handleDestroy}>
-            <ul className="button-group radius even-3">
+        <div className="large-6 medium-6 small-12 columns text-right">
+          <form id="meeting-form" action={meetingUrl} method="post" onSubmit={this.handleDestroy}>
+            <ul className="button-group radius even-2">
               <li>
-                <Link url={viewMeetingUrl} className="button tiny success" role="button" aria-label="view meeting">
+                <Link url={meetingUrl} className="button tiny success" role="button" aria-label="view meeting">
+                  <i className="fa fa-eye fa-lg"></i>
                   View
                 </Link>
               </li>
               <li>
-                <Link url={editMeetingUrl} className="button tiny success" role="button" aria-label="edit meeting">
-                  Edit
-                </Link>
-              </li>
-              <li>
                 <input type="hidden" name="_method" value="DELETE" />
-                <input type="hidden" name="_id" value={meeting._id} />
-                <button className="button tiny secondary" role="button" aria-label="delete meeting">Delete</button>
+                <button className="button tiny secondary" role="button" aria-label="delete meeting">
+                  <i className="fa fa-trash-o fa-lg"></i>
+                  Delete
+                </button>
               </li>
             </ul>
           </form>

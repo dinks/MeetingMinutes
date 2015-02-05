@@ -58,6 +58,39 @@ module.exports = {
       });
   },
 
+  getMeeting: function(meetingId, callback) {
+    var self = this;
+    var token = self.getToken();
+
+    request
+      .get('/api/meetings/' + meetingId)
+      .type('json')
+      .set({
+        'authorization': 'Bearer ' + token,
+      })
+      .end(function(res) {
+        if (res.ok) {
+          if (res.body && res.body.meeting) {
+            var meetingData = res.body.meeting;
+
+            self.addMeeting(meetingData);
+          }
+          if (callback && callback.success) {
+            callback.success(res);
+          }
+        }
+        else {
+          if (callback && callback.error) {
+            callback.error(res);
+          }
+        }
+
+        if (callback && callback.complete) {
+          callback.complete(res);
+        }
+      });
+  },
+
   createMeeting: function(form, callback) {
     var cb = callback || function() {};
     cb.options = {

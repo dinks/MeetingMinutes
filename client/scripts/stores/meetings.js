@@ -1,5 +1,6 @@
 'use strict';
 
+var _ = require('lodash');
 var Store = require('./default');
 var Dispatcher = require('../dispatchers/default');
 var meetingsConstants = require('../constants/meetings');
@@ -10,7 +11,13 @@ var _meetings;
 var MeetingStore = new Store({
 
   // Cache Methods Start
-  getFromCache: function() {
+  getFromCache: function(meetingId) {
+    var meetings = this.cacher.get(meetingsConstants.CACHE_KEY);
+    if (meetingId) {
+      return _.find(_meetings, function(meeting) {
+                return meeting._id === meetingId;
+              });
+    }
     return this.cacher.get(meetingsConstants.CACHE_KEY);
   },
 
@@ -18,8 +25,8 @@ var MeetingStore = new Store({
     return this.cacher.set(meetingsConstants.CACHE_KEY, meetings, meetingsConstants.CACHE_EXPIRATION);
   },
 
-  inCache: function() {
-    return this.cacher.get(meetingsConstants.CACHE_KEY) !== null;
+  inCache: function(meetingId) {
+    return !!this.getFromCache(meetingId);
   },
 
   purgeCache: function() {
@@ -28,8 +35,18 @@ var MeetingStore = new Store({
   // Cache Ends
 
   // Gets data associated with the Meetings
-  get: function() {
-    return this.getFromCache() || _meetings || meetingsDefaults;
+  get: function(meetingId) {
+    var cachedMeetings = this.getFromCache();
+    var meetings = cachedMeetings || _meetings || meetingsDefaults;
+    if (meetingId) {
+      var searchableList = _.union(cachedMeetings, _meetings);
+
+      return _.find(searchableList, {
+        '_id': meetingId
+      });
+    } else {
+      return meetings;
+    }
   }
 
 });
@@ -45,13 +62,22 @@ MeetingStore.dispatcherToken = Dispatcher.register(function(payload) {
   }
 
   if (action.actionType === meetingsConstants.ADD_MEETING) {
-    if (_meetings) {
-      _meetings.push(action.meeting);
-    } else {
-      _meetings = [ action.meeting ];
+    if (!_meetings) {
+      _meetings = [];
     }
 
-    MeetingStore.putToCache(_meetings);
+    var storedMeeting = MeetingStore.getFromCache(action.meeting._id);
+
+    if (storedMeeting) {
+      _.merge(storedMeeting, action.meeting);
+    } else {
+      _meetings.push(action.meeting);
+    }
+
+    // It only makes sense to update the cache in case something exists
+    if (MeetingStore.getFromCache()) {
+      MeetingStore.putToCache(_meetings);
+    }
     MeetingStore.emitChange();
   }
 
