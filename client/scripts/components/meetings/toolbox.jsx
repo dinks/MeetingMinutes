@@ -11,7 +11,10 @@ var ToolboxComponent = React.createClass({
     return (
       /* jshint ignore:start */
       <div className="text-right">
-        <Link url="/meetings/new" className="button tiny radius" role="button" aria-label="create a new meeting">Create new meeting</Link>
+        <Link url="/meetings/new" className="button tiny radius" role="button" aria-label="create a new meeting">
+          <i className="fa fa-plus"></i>
+          Create new meeting
+        </Link>
       </div>
       /* jshint ignore:end */
     );

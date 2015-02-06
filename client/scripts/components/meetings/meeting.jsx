@@ -41,7 +41,7 @@ var MeetingComponent = React.createClass({
         </div>
         <div className="large-12 medium-12 small-12 columns text-right">
           <form id="meeting-form" action={deleteMeetingUrl} method="post" onSubmit={this.handleDestroy}>
-            <ul className="button-group radius even-4">
+            <ul className="button-group radius">
               <li>
                 <Link url={meetingUrl} className="button tiny success" role="button" aria-label="view meeting">
                   <i className="fa fa-eye fa-lg"></i>

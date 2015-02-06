@@ -22,16 +22,26 @@ var NavbarComponent = React.createClass({
       /* jshint ignore:start */
       <ul className="right">
         <li className="name salutation">
+          <i className="fa fa-smile-o"></i>
           Hello {user.firstName ? user.firstName : user.email}
         </li>
         <li>
-          <Link url="/meetings" role="button" aria-label="show meetings">Meetings</Link>
+          <Link url="/meetings" role="button" aria-label="show meetings">
+            <i className="fa fa-calendar"></i>
+            Meetings
+          </Link>
         </li>
         <li>
-          <Link url="/settings" role="button" aria-label="show settings">My Account</Link>
+          <Link url="/settings" role="button" aria-label="show settings">
+            <i className="fa fa-user"></i>
+            My Account
+          </Link>
         </li>
         <li>
-          <Link url="/logout" onClick={this.handleLogout} role="button" aria-label="log me out">Logout</Link>
+          <Link url="/logout" onClick={this.handleLogout} role="button" aria-label="log me out">
+            <i className="fa fa-sign-out"></i>
+            Logout
+          </Link>
         </li>
       </ul>
       /* jshint ignore:end */
@@ -39,10 +49,16 @@ var NavbarComponent = React.createClass({
       /* jshint ignore:start */
       <ul className="right">
         <li>
-          <Link url="/login" role="button" aria-label="log in">Login</Link>
+          <Link url="/login" role="button" aria-label="log in">
+            <i className="fa fa-sign-in"></i>
+            Login
+          </Link>
         </li>
         <li>
-          <Link url="/signup" role="button" aria-label="create an account">Create Account</Link>
+          <Link url="/signup" role="button" aria-label="create an account">
+            <i className="fa fa-user-plus"></i>
+            Create Account
+          </Link>
         </li>
       </ul>
       /* jshint ignore:end */
@@ -54,7 +70,10 @@ var NavbarComponent = React.createClass({
         <ul className="title-area">
           <li className="name">
             <h1>
-              <Link url="/" role="button" aria-label="go to home">Meeting Minutes</Link>
+              <Link url="/" role="button" aria-label="go to home">
+                <i className="fa fa-home"></i>
+                Meeting Minutes
+              </Link>
             </h1>
           </li>
           <li className="toggle-topbar menu-icon"><a><span></span></a></li>

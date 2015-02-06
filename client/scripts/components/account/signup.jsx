@@ -31,7 +31,10 @@ var SignupComponent = React.createClass({
                   <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" />
                 </p>
 
-                <button>Signup</button>
+                <button role="button" aria-label="Signup" className="button tiny">
+                  <i className="fa fa-user-plus"></i>
+                  Signup
+                </button>
               </form>
             </fieldset>
           </div>

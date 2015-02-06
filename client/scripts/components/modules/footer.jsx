@@ -16,7 +16,9 @@ var FooterComponent = React.createClass({
             <hr />
             <div className="row">
               <div className="large-6 medium-6 small-6 columns">
-                <p>© Copyright <a href="http://github.com/dinks" target="_blank">dinks</a>.</p>
+                <p>
+                  <i className="fa fa-copyright"></i>
+                  Copyright <a href="http://github.com/dinks" target="_blank">dinks</a>.</p>
               </div>
               <div className="large-6 medium-6 small-6 columns">
                 <ul className="inline-list right">
