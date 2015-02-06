@@ -32,27 +32,60 @@ var ShowComponent = React.createClass({
       var meetingUrl = '/api/meetings/' + meeting._id + '?_method=DELETE';
       var segmentUrl = "";
 
+      var stateButton;
+      switch (meeting.state) {
+        case 'waiting':
+          stateButton = <button className="button tiny success radius" role="button" aria-label="start meeting" onClick={this.handleStartMeeting}>
+                    <i className="fa fa-play fa-lg"></i>
+                    Start Meeting
+                  </button>;
+          break;
+
+        case 'started':
+          stateButton = <button className="button tiny alert radius" role="button" aria-label="end meeting" onClick={this.handleEndMeeting}>
+                    <i className="fa fa-stop fa-lg"></i>
+                    End Meeting
+                  </button>;
+          break;
+
+        case 'ended':
+          stateButton = <button className="button tiny disabled radius" role="button" aria-label="ended meeting">
+                    <i className="fa fa-check-thumbs-up fa-lg"></i>
+                    Meeting Ended
+                  </button>;
+          break;
+      }
+
       return (
         /* jshint ignore:start */
         <DefaultLayout>
           <div className="row">
             <div className="large-12 columns">
-              <h2>{meeting.title}</h2>
+              <div className="row">
+                <div className="large-6 medium-6 small-12 columns">
+                  <h2>{meeting.title}</h2>
+                </div>
+                <div className="large-6 medium-6 small-12 columns text-right">
+                  {stateButton}
+                </div>
+              </div>
+            </div>
+            <div className="large-12 columns">
               <p className="subheader">
                 {meeting.agenda}
               </p>
             </div>
             <div className="large-12 columns text-right">
               <form id="meeting-form" action={meetingUrl} method="post" onSubmit={this.handleDestroyAction}>
-                <ul className="button-group radius">
+                <ul className="button-group even-4 radius">
                   <li>
-                    <button value="create-segment" className="button tiny success" role="button" aria-label="create segment" onClick={this.handleCreateSegment}>
+                    <button className="button tiny success" role="button" aria-label="create segment" onClick={this.handleCreateSegment}>
                       <i className="fa fa-tasks fa-lg"></i>
                       Create Segment
                     </button>
                   </li>
                   <li>
-                    <button value="delete-meeting" className="button tiny secondary" role="button" aria-label="delete meeting">
+                    <button className="button tiny secondary" role="button" aria-label="delete meeting">
                       <i className="fa fa-trash-o fa-lg"></i>
                       Delete Meeting
                     </button>
@@ -85,6 +118,12 @@ var ShowComponent = React.createClass({
   },
   handleCreateSegment: function(e) {
     e.preventDefault();
+  },
+  handleStartMeeting: function() {
+    // handle start meetind
+  },
+  handleEndMeeting: function() {
+    // handle end meeting
   },
   // Event handler for 'change' events coming from store mixins.
   _onChange: function() {
