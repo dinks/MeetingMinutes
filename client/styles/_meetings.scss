@@ -1,0 +1,35 @@
+$meeting-state-default-color:       #EAEEEF;
+$meeting-state-waiting-back-color:  #6F706B;
+$meeting-state-started-back-color:  #B04D48;
+$meeting-state-ended-back-color:    #368a55;
+
+.meeting {
+  .progress {
+    color: $meeting-state-default-color;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: transparent;
+    height: 100%;
+
+    .state {
+      padding-left: 0.4em;
+      font-size: 1.4em;
+      font-style: italic;
+    }
+
+    .waiting {
+      background-color: $meeting-state-waiting-back-color;
+      width: 10%;
+    }
+
+    .started {
+      background-color: $meeting-state-waiting-back-color;
+      width: 40%;
+    }
+
+    .ended {
+      background-color: $meeting-state-waiting-back-color;
+      width: 100%;
+    }
+  }
+}

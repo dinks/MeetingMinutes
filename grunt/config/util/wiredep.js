@@ -36,6 +36,12 @@ var taskConfig = function(grunt) {
           },
           'lscache': {
             'main': 'lscache.min.js'
+          },
+          'pace': {
+            'main': [
+              'pace.min.js',
+              'themes/blue/pace-theme-minimal.css'
+            ]
           }
         }
       },
