@@ -55,7 +55,7 @@ var createMeeting = function(req, res, next) {
     if (err) {
       return next(err);
     }
-    res.status(200).json({
+    res.status(201).json({
       meeting: meeting,
       success: [{
         msg: 'Meeting created successfully. Now add segments!'
@@ -65,31 +65,52 @@ var createMeeting = function(req, res, next) {
 };
 
 /*
- * GET /meeting/:id
+ * GET /meetings/:id
  * Get details of a meeting
  */
 var getMeeting = function(req, res, next) {
   Meeting
-  .findOne({
-    creator: req.user._id,
-    _id: req.params.id
-  })
-  .select('title agenda segments state')
-  .exec(function(err, meeting) {
-    if (err) {
-      return next(err);
-    }
-    if (!meeting) {
-      res.status(400).json({
-        errors: [{
-          msg: 'Cannot find the meeting!'
-        }]
-      })
-    }
-    res.status(200).json({
-      meeting: meeting
+    .findOne({
+      creator: req.user._id,
+      _id: req.params.id
+    })
+    .select('title agenda segments state')
+    .exec(function(err, meeting) {
+      if (err) {
+        return next(err);
+      }
+      if (!meeting) {
+        res.status(400).json({
+          errors: [{
+            msg: 'Cannot find the meeting!'
+          }]
+        })
+      }
+      res.status(200).json({
+        meeting: meeting
+      });
     });
-  });
+};
+
+/*
+ * DELETE /meetings/:id
+ * Delete the meeting
+ */
+var deleteMeeting = function(req, res, next) {
+  Meeting
+    .remove({
+      creator: req.user._id,
+      _id: req.params.id
+    }, function(err) {
+      if (err) {
+        return next(err);
+      }
+      res.status(200).json({
+        info: [{
+          msg: 'The meeting has been deleted.'
+        }]
+      });
+    });
 };
 
 var genericHandler = function(req, res) {
@@ -101,5 +122,6 @@ module.exports = {
   genericHandler: genericHandler,
   index: listAllMeetings,
   create: createMeeting,
-  show: getMeeting
+  show: getMeeting,
+  delete: deleteMeeting
 }

@@ -16,6 +16,9 @@ var routes = function(app) {
   // Get a meeting
   app.get('/meetings/:id', meetingController.show);
 
+  // Delete a meeting
+  app.delete('/meetings/:id', meetingController.delete);
+
   return app;
 };
 
