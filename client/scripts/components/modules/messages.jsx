@@ -38,22 +38,22 @@ var MessagesComponent = React.createClass({
 
     var errors = getMessages({
       key: 'errors',
-      msgClass: 'alert-box alert radius large-12 columns'
+      msgClass: 'alert-box alert large-12 medium-12 columns'
     });
 
     var info = getMessages({
       key: 'info',
-      msgClass: 'alert-box info radius large-12 columns'
+      msgClass: 'alert-box info large-12 medium-12 columns'
     });
 
     var success = getMessages({
       key: 'success',
-      msgClass: 'alert-box success radius large-12 columns'
+      msgClass: 'alert-box success large-12 medium-12 columns'
     });
 
     return (
       /* jshint ignore:start */
-      <div className="row">
+      <div className="messages">
         {errors}
         {info}
         {success}

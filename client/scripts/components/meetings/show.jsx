@@ -5,7 +5,7 @@ var DefaultLayout = require('../layouts/default.jsx');
 var Bubbler = require('../modules/bubbler.jsx');
 var Link = require('../modules/link.jsx');
 var meetingsStore = require('../../stores/meetings');
-var meetingsActions = require('../../actions/meetings');
+var meetingActions = require('../../actions/meetings');
 
 var getState = function(meetingId) {
   return {
@@ -22,14 +22,14 @@ var ShowComponent = React.createClass({
   },
   componentDidMount: function() {
     if (!meetingsStore.inCache(this.props.meetingId)) {
-      meetingsActions.getMeeting(this.props.meetingId);
+      meetingActions.getMeeting(this.props.meetingId);
     }
   },
   render: function() {
     var meeting = this.state.meeting;
 
     if (meeting) {
-      var meetingUrl = "/meetings/" + meeting._id;
+      var meetingUrl = '/api/meetings/' + meeting._id + '?_method=DELETE';
       var segmentUrl = "";
 
       return (
@@ -43,7 +43,7 @@ var ShowComponent = React.createClass({
               </p>
             </div>
             <div className="large-12 columns text-right">
-              <form id="meeting-form" action={meetingUrl} method="post" onSubmit={this.handleAction}>
+              <form id="meeting-form" action={meetingUrl} method="post" onSubmit={this.handleDestroyAction}>
                 <ul className="button-group radius">
                   <li>
                     <button value="create-segment" className="button tiny success" role="button" aria-label="create segment" onClick={this.handleCreateSegment}>
@@ -52,7 +52,6 @@ var ShowComponent = React.createClass({
                     </button>
                   </li>
                   <li>
-                    <input type="hidden" name="_method" value="DELETE" />
                     <button value="delete-meeting" className="button tiny secondary" role="button" aria-label="delete meeting">
                       <i className="fa fa-trash-o fa-lg"></i>
                       Delete Meeting
@@ -79,8 +78,10 @@ var ShowComponent = React.createClass({
       );
     }
   },
-  handleAction: function(e) {
+  handleDestroyAction: function(e) {
     e.preventDefault();
+    var form = e.currentTarget;
+    meetingActions.deleteMeeting(form);
   },
   handleCreateSegment: function(e) {
     e.preventDefault();

@@ -15,15 +15,22 @@ var getState = function() {
   };
 };
 
+var getMeetings = function() {
+  if (!meetingsStore.inCache()) {
+    meetingsActions.getMeetings();
+  }
+};
+
 var IndexComponent = React.createClass({
   mixins: [meetingsStore.mixin],
   getInitialState: function() {
     return getState();
   },
   componentDidMount: function() {
-    if (!meetingsStore.inCache()) {
-      meetingsActions.getMeetings();
-    }
+    getMeetings();
+  },
+  componentDidUpdate: function() {
+    getMeetings();
   },
   render: function() {
     var meetings = this.state.meetings;

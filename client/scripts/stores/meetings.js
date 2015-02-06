@@ -82,8 +82,9 @@ MeetingStore.dispatcherToken = Dispatcher.register(function(payload) {
   }
 
   if (action.actionType === meetingsConstants.RESET_MEETINGS) {
+    _meetings = meetingsDefaults;
     MeetingStore.purgeCache();
-    // No emit change required!?
+    // MeetingStore.emitChange();
   }
 
 });

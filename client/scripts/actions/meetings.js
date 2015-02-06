@@ -1,7 +1,7 @@
 'use strict';
 
 var Dispatcher = require('../dispatchers/default');
-var meetingsConstants = require('../constants/meetings');
+var meetingConstants = require('../constants/meetings');
 var meetingsDefaults = require('../constants/defaults').meetings;
 var routeActions = require('./routes');
 var messagesActions = require('./messages');
@@ -15,15 +15,21 @@ module.exports = {
 
   setMeetings: function(meetings) {
     Dispatcher.handleViewAction({
-      actionType: meetingsConstants.SET_MEETINGS,
+      actionType: meetingConstants.SET_MEETINGS,
       meetings: assign([], meetingsDefaults, meetings)
     });
   },
 
   addMeeting: function(meeting) {
     Dispatcher.handleViewAction({
-      actionType: meetingsConstants.ADD_MEETING,
+      actionType: meetingConstants.ADD_MEETING,
       meeting: meeting
+    });
+  },
+
+  resetCache: function() {
+    Dispatcher.handleViewAction({
+      actionType: meetingConstants.RESET_MEETINGS
     });
   },
 
@@ -101,6 +107,16 @@ module.exports = {
     this.postForm(form, cb);
   },
 
+  deleteMeeting: function(form, callback) {
+    var cb = callback || function() {};
+    cb.options = {
+      successUrl: '/meetings',
+      errorUrl: '/meetings',
+      deleteMeeting: true
+    };
+    this.postForm(form, cb);
+  },
+
   getToken: function() {
     var cookies = cookie.parse(document.cookie);
 
@@ -129,6 +145,11 @@ module.exports = {
 
             self.addMeeting(meetingData);
           }
+
+          if (options.deleteMeeting) {
+            self.resetCache();
+          }
+
           if (callback && callback.success) {
             callback.success(res);
           }
