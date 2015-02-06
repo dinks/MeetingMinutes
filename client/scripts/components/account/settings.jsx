@@ -45,7 +45,10 @@ var SettingsComponent = React.createClass({
                 </p>
                 <div className="row">
                   <div className="large-12 columns text-right">
-                    <button className="button tiny radius">Update Profile</button>
+                    <button className="button tiny radius" role="button" aria-label="update profile">
+                      <i className="fa fa-pencil-square-o fa-lg"></i>
+                      Update Profile
+                    </button>
                   </div>
                 </div>
               </form>
@@ -73,7 +76,10 @@ var SettingsComponent = React.createClass({
 
                 <div className="row">
                   <div className="large-12 columns text-right">
-                    <button className="button tiny radius">Change Password</button>
+                    <button className="button tiny radius" role="button" aria-label="change password">
+                      <i className="fa fa-user-secret fa-lg"></i>
+                      Change Password
+                    </button>
                   </div>
                 </div>
               </form>
@@ -95,7 +101,10 @@ var SettingsComponent = React.createClass({
               <form id="delete-form" action="/user?_method=DELETE" method="post" onSubmit={this.handleDestroy}>
                 <div className="row">
                   <div className="large-12 columns text-right">
-                    <button className="button tiny radius">Delete my account</button>
+                    <button className="button tiny radius" role="button" aria-label="delete my account">
+                      <i className="fa fa-frown-o fa-lg"></i>
+                      Delete my account
+                    </button>
                   </div>
                 </div>
               </form>

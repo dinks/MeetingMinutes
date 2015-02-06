@@ -28,7 +28,7 @@ var LoginComponent = React.createClass({
                   <input type="password" name="password" id="password" placeholder="Password" />
                 </p>
 
-                <button role="button" aria-label="Login" className="button tiny">
+                <button role="button" aria-label="Login" className="button tiny radius">
                   <i className="fa fa-sign-in"></i>
                   Login
                 </button>

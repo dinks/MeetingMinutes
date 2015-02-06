@@ -26,7 +26,10 @@ var ResetComponent = React.createClass({
                   <input type="password" name="confirm" defaultValue="" placeholder="Confirm password" />
                 </p>
 
-                <button className="button tiny">Change Password</button>
+                <button className="button tiny radius" role="button" aria-label="change password">
+                  <i className="fa fa-plug fa-lg"></i>
+                  Change Password
+                </button>
               </form>
             </fieldset>
           </div>

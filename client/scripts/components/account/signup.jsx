@@ -31,7 +31,7 @@ var SignupComponent = React.createClass({
                   <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" />
                 </p>
 
-                <button role="button" aria-label="Signup" className="button tiny">
+                <button role="button" aria-label="Signup" className="button tiny radius">
                   <i className="fa fa-user-plus"></i>
                   Signup
                 </button>

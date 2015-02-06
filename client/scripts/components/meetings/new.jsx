@@ -36,11 +36,13 @@ var NewComponent = React.createClass({
                     <ul className="button-group radius">
                       <li>
                         <button className="button tiny" role="button" aria-label="create meeting">
+                          <i className="fa fa-plus fa-lg"></i>
                           Create
                         </button>
                       </li>
                       <li>
                         <Link url="/meetings" className="button tiny secondary" role="button" aria-label="cancel creation of meeting">
+                          <i className="fa fa-times fa-lg"></i>
                           Cancel
                         </Link>
                       </li>
