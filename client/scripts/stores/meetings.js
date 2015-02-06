@@ -81,6 +81,11 @@ MeetingStore.dispatcherToken = Dispatcher.register(function(payload) {
     MeetingStore.emitChange();
   }
 
+  if (action.actionType === meetingsConstants.RESET_MEETINGS) {
+    MeetingStore.purgeCache();
+    // No emit change required!?
+  }
+
 });
 
 module.exports = MeetingStore;

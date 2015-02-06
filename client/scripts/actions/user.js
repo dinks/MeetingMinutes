@@ -2,6 +2,7 @@
 
 var Dispatcher = require('../dispatchers/default');
 var userConstants = require('../constants/user');
+var meetingConstants = require('../constants/meetings');
 var messagesActions = require('./messages');
 var routeActions = require('./routes');
 var userDefaults = require('../constants/defaults').user;
@@ -16,6 +17,12 @@ module.exports = {
     Dispatcher.handleViewAction({
       actionType: userConstants.SET_CURRENT_USER,
       user: user
+    });
+  },
+
+  resetCache: function() {
+    Dispatcher.handleViewAction({
+      actionType: meetingConstants.RESET_MEETINGS
     });
   },
 
@@ -145,6 +152,9 @@ module.exports = {
 
     // Reset user to defaults
     this.setUser(userDefaults);
+
+    // Reset all the cache for this user
+    this.resetCache();
 
     // Redirect to homepage
     routeActions.setRoute('/');

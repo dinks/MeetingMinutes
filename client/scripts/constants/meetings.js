@@ -9,7 +9,9 @@ var meetingsConstants = _.assign(
     // Global meeting types
     SET_MEETINGS: null,
 
-    ADD_MEETING: null
+    ADD_MEETING: null,
+
+    RESET_MEETINGS: null
 
   }), {
   // Cache settings
