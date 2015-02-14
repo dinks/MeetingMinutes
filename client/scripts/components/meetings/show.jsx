@@ -74,14 +74,21 @@ var ShowComponent = React.createClass({
               <p className="subheader">
                 {meeting.agenda}
               </p>
+              <hr />
             </div>
             <div className="large-12 columns text-right">
               <form id="meeting-form" action={meetingUrl} method="post" onSubmit={this.handleDestroyAction}>
-                <ul className="button-group even-4 radius">
+                <ul className="button-group even-5 radius">
                   <li>
                     <button className="button tiny success" role="button" aria-label="create segment" onClick={this.handleCreateSegment}>
                       <i className="fa fa-tasks fa-lg"></i>
                       Create Segment
+                    </button>
+                  </li>
+                  <li>
+                    <button className="button tiny success" role="button" aria-label="save meeting" onClick={this.handleSaveMeeting}>
+                      <i className="fa fa-pencil-square-o fa-lg"></i>
+                      Save Meeting
                     </button>
                   </li>
                   <li>
