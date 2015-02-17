@@ -1,8 +1,8 @@
-/* global lscache: false */
 'use strict';
 
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
+var lscache = require('lscache');
 
 var CHANGE_EVENT = 'change';
 
