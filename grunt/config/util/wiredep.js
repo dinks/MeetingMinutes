@@ -30,6 +30,7 @@ var taskConfig = function(grunt) {
               'css/foundation.css',
               'css/foundation.css.map',
               'js/foundation.js',
+              'js/foundation/foundation.reveal.js',
               'js/foundation/foundation.topbar.js',
               'js/foundation/foundation.alert.js'
             ]

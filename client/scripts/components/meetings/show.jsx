@@ -4,6 +4,7 @@ var React = require('react');
 var DefaultLayout = require('../layouts/default.jsx');
 var Bubbler = require('../modules/bubbler.jsx');
 var Link = require('../modules/link.jsx');
+var NewSegment = require('./segments/new.jsx');
 var meetingsStore = require('../../stores/meetings');
 var meetingActions = require('../../actions/meetings');
 
@@ -101,6 +102,10 @@ var ShowComponent = React.createClass({
               </form>
             </div>
           </div>
+          <div id="new-segment-modal" className="reveal-modal" data-reveal>
+            <a className="close-reveal-modal">&#215;</a>
+            <NewSegment />
+          </div>
         </DefaultLayout>
         /* jshint ignore:end */
       );
@@ -125,6 +130,7 @@ var ShowComponent = React.createClass({
   },
   handleCreateSegment: function(e) {
     e.preventDefault();
+    $('#new-segment-modal').foundation('reveal', 'open');
   },
   handleStartMeeting: function() {
     // handle start meetind
