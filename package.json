@@ -88,7 +88,7 @@
     "clean": "rimraf node_modules client/bower_components .tmp dist",
     "start": "NODE_ENV=production node dist/server.js",
     "test": "grunt test",
-    "postinstall": "bower install && grunt build"
+    "postinstall": "bash ./post_install.sh"
   },
   "engines": {
     "node": ">=0.10.0"
