@@ -52,7 +52,7 @@ var taskConfig = function(grunt) {
     },
     styles: {
       src: ['<%= yeogurt.client %>/styles/**/*.{scss,sass}'],
-      ignorePath: /client/g,
+      ignorePath: /client/g
     }
   });
 

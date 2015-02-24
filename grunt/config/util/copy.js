@@ -33,6 +33,14 @@ var taskConfig = function(grunt) {
           'server.js',
           'package.json'
         ]
+      }, {
+        expand: true,
+        flatten: true,
+        cwd: '<%= yeogurt.client %>/',
+        dest: '<%= yeogurt.dist %>/client/fonts/',
+        src: [
+          'bower_components/fontawesome/fonts/*.{woff,otf,ttf,eot,svg}'
+        ]
       }]
     }
   });
