@@ -14,7 +14,7 @@ var defaults = {
     // Port to run server on
     port: process.env.PORT || 9010,
     // Host/URL to run server on
-    host: process.env.HOSTNAME || '127.0.0.1',
+    host: process.env.MYHOSTNAME || '127.0.0.1',
     // Log level
     logLevel: 'dev',
     // Paths to ignore when redirecting back
