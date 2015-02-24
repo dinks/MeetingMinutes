@@ -12,7 +12,7 @@ var envConfig = require('./' + env);
 var defaults = {
   server: {
     // Port to run server on
-    port: process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 9010,
+    port: process.env.PORT || 9010,
     // Host/URL to run server on
     host: process.env.MYHOSTNAME || '127.0.0.1',
     // Log level
